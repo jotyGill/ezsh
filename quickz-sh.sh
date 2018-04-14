@@ -1,15 +1,14 @@
 #!/bin/bash
 
 if command -v zsh &> /dev/null && command -v git &> /dev/null ; then
-	echo "ZSH and Git are already installed\n"
+	echo -e "ZSH and Git are already installed\n"
 else
 	if sudo apt install -y zsh git || sudo dnf install -y zsh git || sudo yum install -y zsh git || brew install git zsh ; then
-		echo "\nZSH and Git Installed\n"
+		echo -e "ZSH and Git Installed\n"
 	else
-		echo "\nCan't install ZSH or Git \n" && exit
+		echo -e "Can't install ZSH or Git\n" && exit
 	fi
 fi
-
 
 
 #if [ -d ~/.oh-my-zsh ]; then
@@ -18,16 +17,24 @@ fi
 #    mv ~/.oh-my-zsh ~/.oh-my-zsh-backup
 #fi
 
-echo "\nInstalling oh-my-zsh\n"
-if sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; then
-	echo "Installed OH-MY-ZSH/n"
-else
-	echo "Installation of OH-MY-ZSH Failed"
-	exit
+if mv ~/.zshrc ~/.zshrc-backup; then	# if already have zshrc-backup, keep it, don't overwrite
+	echo -e "\nBacked up the current .zshrc to .zshrc-backup\n"
 fi
 
+echo -e "\nInstalling oh-my-zsh\n"
+if git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; then
+	echo -e "Installed OH-MY-ZSH\n"
+fi
 
-mv ~/.zshrc ~/.zshrc-backup && cp .zshrc ~/
+cp -f .zshrc ~/
+
+
+#if sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; then
+#	echo "Installed OH-MY-ZSH\n"
+#else
+#	echo "Installation of OH-MY-ZSH Failed"
+#	exit
+#fi
 
 
 if git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
@@ -42,12 +49,12 @@ else
 fi
 
 if git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions; then :
-else	
+else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-completions && git pull
 fi
 
 if git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search; then :
-else	
+else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
 fi
 
@@ -58,18 +65,24 @@ else
 fi
 
 if ~/powerline_fonts/install.sh && rm -rf ~/powerline_fonts; then
-	echo "powerline_fonts Installed"
-else	
-	echo "\n\npowerline_fonts Installation Failed\n\n"
+	echo -e "powerline_fonts Installed\n"
+else
+	echo -e "powerline_fonts Installation Failed\n"
+fi
+
+if git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
+else
+	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
 fi
 
 #rsync -ra .zshrc ~/ && rsync -ra .oh-my-zsh ~/ && rsync -ra .fz* ~/
 
 # source ~/.zshrc
 
-if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
-	echo "Installation Successful, exit terminal and enter a new session"
+#if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
+if /bin/zsh -i -c upgrade_oh_my_zsh; then
+	echo -e "\nInstallation Successful, exit terminal and enter a new session"
 else
-	echo "Something is wrong"
-
+	echo -e "\nSomething is wrong"
+fi
 exit
