@@ -10,6 +10,14 @@ export TERM="xterm-256color"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ram rvm time)
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -54,7 +62,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting history-substring-search)
 #plugins+=(zsh-nvm)
-	
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
