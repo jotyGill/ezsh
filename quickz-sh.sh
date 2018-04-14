@@ -79,8 +79,7 @@ fi
 
 # source ~/.zshrc
 
-#if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
-if /bin/zsh -i -c upgrade_oh_my_zsh; then
+if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
 	echo -e "\nInstallation Successful, exit terminal and enter a new session"
 else
 	echo -e "\nSomething is wrong"
