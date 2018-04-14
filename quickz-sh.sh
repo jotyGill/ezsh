@@ -11,17 +11,12 @@ else
 fi
 
 
-#if [ -d ~/.oh-my-zsh ]; then
-#    printf "You already have Oh My Zsh installed.\n"
-#    printf "Moving that to .oh-my-zsh-backup\n"
-#    mv ~/.oh-my-zsh ~/.oh-my-zsh-backup
-#fi
-
 if mv ~/.zshrc ~/.zshrc-backup; then	# if already have zshrc-backup, keep it, don't overwrite
-	echo -e "\nBacked up the current .zshrc to .zshrc-backup\n"
+	echo -e "Backed up the current .zshrc to .zshrc-backup\n"
 fi
 
-echo -e "\nInstalling oh-my-zsh\n"
+
+echo -e "Installing oh-my-zsh\n"
 if git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; then
 	echo -e "Installed OH-MY-ZSH\n"
 fi
@@ -29,19 +24,10 @@ fi
 cp -f .zshrc ~/
 
 
-#if sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; then
-#	echo "Installed OH-MY-ZSH\n"
-#else
-#	echo "Installation of OH-MY-ZSH Failed"
-#	exit
-#fi
-
-
 if git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
 else
 	cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
 fi
-
 
 if git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting; then :
 else
@@ -65,9 +51,9 @@ else
 fi
 
 if ~/powerline_fonts/install.sh && rm -rf ~/powerline_fonts; then
-	echo -e "powerline_fonts Installed\n"
+	echo -e "\npowerline_fonts Installed\n"
 else
-	echo -e "powerline_fonts Installation Failed\n"
+	echo -e "\npowerline_fonts Installation Failed\n"
 fi
 
 if git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
@@ -75,13 +61,13 @@ else
 	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
 fi
 
-#rsync -ra .zshrc ~/ && rsync -ra .oh-my-zsh ~/ && rsync -ra .fz* ~/
 
 # source ~/.zshrc
+echo -e "/nSudo access is needed to change default shell/n"
 
 if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
-	echo -e "\nInstallation Successful, exit terminal and enter a new session"
+	echo -e "Installation Successful, exit terminal and enter a new session"
 else
-	echo -e "\nSomething is wrong"
+	echo -e "Something is wrong"
 fi
 exit

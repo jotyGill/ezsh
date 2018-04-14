@@ -95,3 +95,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
+alias l="ls -lah"
