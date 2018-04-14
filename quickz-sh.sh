@@ -11,7 +11,7 @@ else
 fi
 
 
-if mv ~/.zshrc ~/.zshrc-backup; then	# if already have zshrc-backup, keep it, don't overwrite
+if mv -n ~/.zshrc ~/.zshrc-backup; then	# if already have zshrc-backup, keep it, don't overwrite
 	echo -e "Backed up the current .zshrc to .zshrc-backup\n"
 fi
 
@@ -63,7 +63,7 @@ fi
 
 
 # source ~/.zshrc
-echo -e "/nSudo access is needed to change default shell/n"
+echo -e "\nSudo access is needed to change default shell\n"
 
 if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
 	echo -e "Installation Successful, exit terminal and enter a new session"
