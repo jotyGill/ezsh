@@ -3,7 +3,7 @@
 if command -v zsh &> /dev/null && command -v git &> /dev/null ; then
 	echo -e "ZSH and Git are already installed\n"
 else
-	if sudo apt install -y zsh git || sudo dnf install -y zsh git || sudo yum install -y zsh git || brew install git zsh ; then
+	if sudo apt install -y zsh git || sudo dnf install -y zsh git || sudo yum install -y zsh git || sudo brew install git zsh ; then
 		echo -e "ZSH and Git Installed\n"
 	else
 		echo -e "Can't install ZSH or Git\n" && exit
