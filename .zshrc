@@ -60,7 +60,23 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ram rvm time)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting history-substring-search)
+plugins=(
+    git
+    zsh-completions
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    history-substring-search
+    python
+    httpie
+    docker
+    lol
+    pip
+    pyenv
+    redis-cli
+    screen
+    thefuck
+    systemd
+    web-search)
 #plugins+=(zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
