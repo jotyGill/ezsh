@@ -17,35 +17,35 @@ fi
 
 
 echo -e "Installing oh-my-zsh\n"
-if git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; then
+if git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; then
 	echo -e "Installed OH-MY-ZSH\n"
 fi
 
 cp -f .zshrc ~/
 
 
-if git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
+if git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
 else
 	cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
 fi
 
-if git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting; then :
+if git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting; then :
 else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull
 fi
 
-if git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions; then :
+if git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions; then :
 else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-completions && git pull
 fi
 
-if git clone https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search; then :
+if git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search; then :
 else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
 fi
 
 
-if git clone https://github.com/powerline/fonts.git --depth=1 ~/powerline_fonts; then :
+if git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 ~/powerline_fonts; then :
 else
 	cd ~/powerline_fonts && git pull
 fi
@@ -56,7 +56,7 @@ else
 	echo -e "\npowerline_fonts Installation Failed\n"
 fi
 
-if git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
+if git clone --depth=1 https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
 else
 	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
 fi
