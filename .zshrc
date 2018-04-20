@@ -74,7 +74,6 @@ plugins=(
     pyenv
     redis-cli
     screen
-    thefuck
     systemd
     web-search)
 #plugins+=(zsh-nvm)
