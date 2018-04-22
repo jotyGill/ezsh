@@ -61,6 +61,12 @@ else
 	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
 fi
 
+if git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; then :
+else
+	cd ~/.fzf && git pull
+fi
+~/.fzf/install --all --key-bindings --completion --no-update-rc --64
+
 
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"

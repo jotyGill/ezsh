@@ -1,6 +1,6 @@
 # quickz-sh
 
-Quickly install and setup oh-my-zsh with powerlevel9k theme, Powerline fonts, zsh-completions, zsh-autosuggestions, zsh-syntax-highlighting, history-substring-search etc.
+Quickly install and setup oh-my-zsh with powerlevel9k theme, Powerline fonts, zsh-completions, zsh-autosuggestions, zsh-syntax-highlighting, history-substring-search, fzf etc.
 
 ## Installation
 ``` bash

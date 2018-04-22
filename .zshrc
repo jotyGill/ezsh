@@ -109,5 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPS="--extended"
+
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
