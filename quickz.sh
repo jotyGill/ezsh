@@ -81,7 +81,7 @@ if ~/marker/install.py; then
 	echo -e "Installed Marker"
 else
 	echo -e "Marker Installation Had Issues"
-
+fi
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
 

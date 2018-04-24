@@ -64,7 +64,6 @@ plugins=(
     git
     zsh-completions
     zsh-autosuggestions
-    zsh-syntax-highlighting
     history-substring-search
     python
     httpie
@@ -76,7 +75,9 @@ plugins=(
     screen
     systemd
     web-search
-    k)
+    k
+    zsh-syntax-highlighting
+    )
 #plugins+=(zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
