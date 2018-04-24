@@ -67,6 +67,20 @@ else
 fi
 ~/.fzf/install --all --key-bindings --completion --no-update-rc --64
 
+if git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
+else
+	cd ~/.oh-my-zsh/custom/plugins/k && git pull
+fi
+
+if git clone https://github.com/pindexis/marker ~/marker; then :
+else
+	cd ~/marker && git pull
+fi
+
+if ~/marker/install.py; then
+	echo -e "Installed Marker"
+else
+	echo -e "Marker Installation Had Issues"
 
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"

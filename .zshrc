@@ -75,7 +75,8 @@ plugins=(
     redis-cli
     screen
     systemd
-    web-search)
+    web-search
+    k)
 #plugins+=(zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
@@ -111,6 +112,11 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
+
+export MARKER_KEY_NEXT_PLACEHOLDER="\C-b"   #change maker key binding from Ctr+t to Ctr+b
+
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
 
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
