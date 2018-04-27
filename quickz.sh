@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if command -v zsh &> /dev/null && command -v git &> /dev/null ; then
+if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null; then
 	echo -e "ZSH and Git are already installed\n"
 else
-	if sudo apt install -y zsh git || sudo dnf install -y zsh git || sudo yum install -y zsh git || sudo brew install git zsh ; then
+	if sudo apt install -y zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget ; then
 		echo -e "ZSH and Git Installed\n"
 	else
 		echo -e "Can't install ZSH or Git\n" && exit
@@ -78,10 +78,25 @@ else
 fi
 
 if ~/marker/install.py; then
-	echo -e "Installed Marker"
+	echo -e "Installed Marker\n"
 else
-	echo -e "Marker Installation Had Issues"
+	echo -e "Marker Installation Had Issues\n"
 fi
+
+
+if [[ $1 == "--cp-hist" ]]; then
+    echo -e "Copying bash_history to zsh_history\n"
+    if command -v python &>/dev/null; then
+        wget https://gist.githubusercontent.com/muendelezaji/c14722ab66b505a49861b8a74e52b274/raw/49f0fb7f661bdf794742257f58950d209dd6cb62/bash-to-zsh-hist.py
+        cat ~/.bash_history | python3 bash-to-zsh-hist.py
+    else
+        echo "Python is not installed, can't copy bash_history to zsh_history\n"
+    fi
+else
+    echo -e "Not copying history\n"
+fi
+
+
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
 
