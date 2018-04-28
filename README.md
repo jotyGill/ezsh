@@ -12,4 +12,6 @@ cd quickz-sh
 ./quickz.sh
 ```
 Optionally run it with '--cp-hist' to copy command history from .bash_history to .zsh_history.
-`./quickz.sh --cp-hist  # don't run multiple times`
+``` bash
+./quickz.sh --cp-hist  # don't run multiple times
+```
