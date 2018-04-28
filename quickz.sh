@@ -88,7 +88,7 @@ if [[ $1 == "--cp-hist" ]]; then
     echo -e "Copying bash_history to zsh_history\n"
     if command -v python &>/dev/null; then
         wget https://gist.githubusercontent.com/muendelezaji/c14722ab66b505a49861b8a74e52b274/raw/49f0fb7f661bdf794742257f58950d209dd6cb62/bash-to-zsh-hist.py
-        cat ~/.bash_history | python3 bash-to-zsh-hist.py
+        cat ~/.bash_history | python bash-to-zsh-hist.py >> ~/.zsh_history
     else
         echo "Python is not installed, can't copy bash_history to zsh_history\n"
     fi
