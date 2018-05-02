@@ -93,11 +93,16 @@ fi
 # mkdir ~/.quickzsh/todo/bin ; cp -f ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh # cp todo.sh to ./bin so only it is included in $PATH
 # #touch ~/.todo/config		# needs it, otherwise spits error , yeah a bug in todo
 # ln -s ~/.quickzsh/todo ~/.todo
-mkdir -p ~/.quickzsh/todo/bin
-wget "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz" -P ~/.quickzsh/
-tar xvf ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz -C ~/.quickzsh/todo --strip 1 && rm ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz
-ln -s ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh 	# so only .../bin is included in $PATH
-ln -s ~/.quickzsh/todo/todo.cfg ~/.todo.cfg		# it expects it there or ~/todo.cfg or ~/.todo/config
+if [ ! -L ~/.quickzsh/todo/bin/todo.sh ]; then
+    echo -e "Installing todo.sh in ~/.quickzsh/todo\n"
+		mkdir -p ~/.quickzsh/todo/bin
+		wget "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz" -P ~/.quickzsh/
+		tar xvf ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz -C ~/.quickzsh/todo --strip 1 && rm ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz
+		ln -s ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh 	# so only .../bin is included in $PATH
+		ln -s ~/.quickzsh/todo/todo.cfg ~/.todo.cfg		# it expects it there or ~/todo.cfg or ~/.todo/config
+else
+	echo -e "todo.sh is already instlled in ~/.quickzsh/todo\n"
+fi
 
 if [[ $1 == "--cp-hist" ]]; then
     echo -e "\nCopying bash_history to zsh_history\n"

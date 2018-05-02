@@ -118,10 +118,7 @@ export MARKER_KEY_NEXT_PLACEHOLDER="\C-b"   #change maker key binding from Ctr+t
 
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 
-export PATH=$PATH:~/.todo/bin
-
-#alias todo.sh="~/.quickzsh/todo/todo.sh"
-#complete -F _todo todo.sh     #enable autocompletion for the alias, only needed if different alias
+export PATH=$PATH:~/.quickzsh/todo/bin    #usig alias doesn't properly work
 
 
 SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
