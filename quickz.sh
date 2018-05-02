@@ -24,6 +24,9 @@ fi
 cp -f .zshrc ~/
 
 
+mkdir ~/.quickzsh		# external plugins, things, will be instlled in here
+
+
 if git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
 else
 	cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
@@ -45,12 +48,12 @@ else
 fi
 
 
-if git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 ~/powerline_fonts; then :
+if git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 ~/.quickzsh/powerline_fonts; then :
 else
-	cd ~/powerline_fonts && git pull
+	cd ~/.quickzsh/powerline_fonts && git pull
 fi
 
-if ~/powerline_fonts/install.sh && rm -rf ~/powerline_fonts; then
+if ~/.quickzsh/powerline_fonts/install.sh && rm -rf ~/.quickzsh/powerline_fonts; then
 	echo -e "\npowerline_fonts Installed\n"
 else
 	echo -e "\npowerline_fonts Installation Failed\n"
@@ -61,31 +64,43 @@ else
 	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
 fi
 
-if git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; then :
+if git clone --depth 1 https://github.com/junegunn/fzf.git ~/.quickzsh/fzf; then :
 else
-	cd ~/.fzf && git pull
+	cd ~/.quickzsh/fzf && git pull
 fi
-~/.fzf/install --all --key-bindings --completion --no-update-rc --64
+~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
 
-if git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
+if git clone --depth 1 https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
 else
 	cd ~/.oh-my-zsh/custom/plugins/k && git pull
 fi
 
-if git clone https://github.com/pindexis/marker ~/marker; then :
+if git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker; then :
 else
-	cd ~/marker && git pull
+	cd ~/.quickzsh/marker && git pull
 fi
 
-if ~/marker/install.py; then
+if ~/.quickzsh/marker/install.py; then
 	echo -e "Installed Marker\n"
 else
 	echo -e "Marker Installation Had Issues\n"
 fi
 
+# if git clone --depth 1 https://github.com/todotxt/todo.txt-cli.git ~/.quickzsh/todo; then :
+# else
+# 	cd ~/.quickzsh/todo && git fetch --all && git reset --hard origin/master
+# fi
+# mkdir ~/.quickzsh/todo/bin ; cp -f ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh # cp todo.sh to ./bin so only it is included in $PATH
+# #touch ~/.todo/config		# needs it, otherwise spits error , yeah a bug in todo
+# ln -s ~/.quickzsh/todo ~/.todo
+mkdir -p ~/.quickzsh/todo/bin
+wget "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz" -P ~/.quickzsh/
+tar xvf ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz -C ~/.quickzsh/todo --strip 1 && rm ~/.quickzsh/todo.txt_cli-2.11.0.tar.gz
+ln -s ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh 	# so only .../bin is included in $PATH
+ln -s ~/.quickzsh/todo/todo.cfg ~/.todo.cfg		# it expects it there or ~/todo.cfg or ~/.todo/config
 
 if [[ $1 == "--cp-hist" ]]; then
-    echo -e "Copying bash_history to zsh_history\n"
+    echo -e "\nCopying bash_history to zsh_history\n"
     if command -v python &>/dev/null; then
         wget https://gist.githubusercontent.com/muendelezaji/c14722ab66b505a49861b8a74e52b274/raw/49f0fb7f661bdf794742257f58950d209dd6cb62/bash-to-zsh-hist.py
         cat ~/.bash_history | python bash-to-zsh-hist.py >> ~/.zsh_history
@@ -98,7 +113,7 @@ if [[ $1 == "--cp-hist" ]]; then
 		fi
     fi
 else
-    echo -e "Not copying history\n"
+    echo -e "\nNot copying bash_history to zsh_history, as --cp-hist is not supplied\n"
 fi
 
 
