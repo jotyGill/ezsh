@@ -123,6 +123,7 @@ export MARKER_KEY_NEXT_PLACEHOLDER="\C-b"   #change maker key binding from Ctr+t
 
 export PATH=$PATH:~/.quickzsh/todo/bin    #usig alias doesn't properly work
 
+autoload -U compinit && compinit        # zsh-completions
 
 SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
