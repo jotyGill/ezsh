@@ -135,6 +135,13 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
-https() {                                           # make httpie use https by default
+
+https() {                                           # make httpie use https
     http https://$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
+}
+
+# cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
+# example 'cheat tar'
+cheat() {
+    curl https://cheat.sh/$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
 }

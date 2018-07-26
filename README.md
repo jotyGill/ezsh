@@ -11,6 +11,7 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * k (https://github.com/supercrabtree/k)
 * marker (https://github.com/pindexis/marker)
 * todotxt (https://github.com/todotxt/todo.txt-cli)
+* cheat.sh (https://github.com/chubin/cheat.sh) just an alias is all we need
 
 All oh-my-zsh plugins are installed under ~/.oh-my-zsh
 Other tools (fzf,marker,todo) are installed in ~/.quickzsh
