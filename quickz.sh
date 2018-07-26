@@ -101,7 +101,7 @@ if [ ! -L ~/.quickzsh/todo/bin/todo.sh ]; then
 		ln -s ~/.quickzsh/todo/todo.sh ~/.quickzsh/todo/bin/todo.sh 	# so only .../bin is included in $PATH
 		ln -s ~/.quickzsh/todo/todo.cfg ~/.todo.cfg		# it expects it there or ~/todo.cfg or ~/.todo/config
 else
-	echo -e "todo.sh is already instlled in ~/.quickzsh/todo\n"
+	echo -e "todo.sh is already instlled in ~/.quickzsh/todo/bin/\n"
 fi
 
 if [[ $1 == "--cp-hist" ]]; then

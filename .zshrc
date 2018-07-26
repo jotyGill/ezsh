@@ -114,6 +114,9 @@ source $ZSH/oh-my-zsh.sh
 # Add to PATH to Install and run programs with "pip install --user"
 export PATH=$PATH:~/.local/bin
 
+NPM_PACKAGES="${HOME}/.npm"
+PATH="$NPM_PACKAGES/bin:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 
@@ -124,8 +127,14 @@ export MARKER_KEY_NEXT_PLACEHOLDER="\C-b"   #change maker key binding from Ctr+t
 export PATH=$PATH:~/.quickzsh/todo/bin    #usig alias doesn't properly work
 
 autoload -U compinit && compinit        # zsh-completions
+# autoload bashcompinit                 # bash completions
+# bashcompinit
+
 
 SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
+https() {                                           # make httpie use https by default
+    http https://$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
+}
