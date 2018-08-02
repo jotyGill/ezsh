@@ -8,6 +8,11 @@ export TERM="xterm-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+# Source and use awesome-fonts
+# source ~/.fonts/*.sh
+POWERLEVEL9K_MODE='awesome-fontconfig'
+
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
@@ -16,7 +21,12 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time ram rvm time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(docker_machine status command_execution_time background_jobs ssh public_ip todo ram load rvm time)
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -145,3 +155,7 @@ https() {                                           # make httpie use https
 cheat() {
     curl https://cheat.sh/$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
 }
+
+# Matrix screen saver! will run if you have installed "cmatrix"
+TMOUT=300
+TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -s; fi }
