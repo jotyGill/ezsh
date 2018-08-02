@@ -13,18 +13,17 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * todotxt (https://github.com/todotxt/todo.txt-cli)
 * cheat.sh (https://github.com/chubin/cheat.sh) just an alias is all we need
 
-All oh-my-zsh plugins are installed under ~/.oh-my-zsh
-Other tools (fzf,marker,todo) are installed in ~/.quickzsh
-
-NOTE: marker's shortcut "Ctr+t" clashed with fzf so I rebound it to "Ctr +b"
 
 ## Demo
-Watch this to get an idea of what your shell (well, life!) could be like!!
+Watch this to get an idea of what your Shell (well, life!) could be like!!
+
 [![asciicast](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4.png)](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4)
+
 
 ## Installation
 Requirements:
-`python3` or `python` is required to run option '--cp-hist'
+* `git` to clone it.
+* `python3` or `python` is required to run option '--cp-hist'
 
 ``` bash
 git clone https://github.com/jotyGill/quickz-sh.git
@@ -35,5 +34,16 @@ First time run it with '--cp-hist' instead, to copy command history from .bash_h
 ``` bash
 ./quickz.sh --cp-hist  # running multiple times will duplicate history entries
 ```
+
+
+## Notes
+* If the text/icons look broken, make sure your terminal is using one of the powerline fonts. [discussion](https://github.com/powerline/fonts/issues/185). I use roboto-mono-for-powerline
+
+* marker's shortcut "Ctr+t" clashed with fzf so I rebound it to "Ctr +b"
+
+* All oh-my-zsh plugins are installed under ~/.oh-my-zsh, Other tools (fzf,marker,todo) are installed in ~/.quickzsh
+
+* The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by editing POWERLEVEL9K settings in .zshrc (from line ~15)
+
 
 Suggestions about more cool tools are always welcome :)
