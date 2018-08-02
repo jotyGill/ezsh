@@ -47,6 +47,7 @@ else
 	cd ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
 fi
 
+# INSTALL FONTS
 
 if git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 ~/.quickzsh/powerline_fonts; then :
 else
@@ -57,6 +58,17 @@ if ~/.quickzsh/powerline_fonts/install.sh && rm -rf ~/.quickzsh/powerline_fonts;
 	echo -e "\npowerline_fonts Installed\n"
 else
 	echo -e "\npowerline_fonts Installation Failed\n"
+fi
+
+if git clone --depth=1 https://github.com/gabrielelana/awesome-terminal-fonts.git --depth=1 ~/.quickzsh/awesome_terminal_fonts; then :
+else
+	cd ~/.quickzsh/awesome_terminal_fonts && git pull
+fi
+
+if ~/.quickzsh/awesome_terminal_fonts/install.sh; then
+	echo -e "\nawesome_terminal_fonts Installed\n"
+else
+	echo -e "\nawesome_terminal_fonts Installation Failed\n"
 fi
 
 if git clone --depth=1 https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
