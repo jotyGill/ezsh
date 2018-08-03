@@ -60,6 +60,12 @@ else
 	echo -e "\npowerline_fonts Installation Failed\n"
 fi
 
+
+wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+
+fc-cache -fv ~/.fonts
+
 # if git clone --depth=1 https://github.com/gabrielelana/awesome-terminal-fonts.git --depth=1 ~/.quickzsh/awesome_terminal_fonts; then :
 # else
 # 	cd ~/.quickzsh/awesome_terminal_fonts && git pull

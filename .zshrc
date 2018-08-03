@@ -9,9 +9,8 @@ export TERM="xterm-256color"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-# Source and use awesome-fonts
-# source ~/.fonts/*.sh
-POWERLEVEL9K_MODE='awesome-fontconfig'
+
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -158,4 +157,4 @@ cheat() {
 
 # Matrix screen saver! will run if you have installed "cmatrix"
 TMOUT=300
-TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -s; fi }
+TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
