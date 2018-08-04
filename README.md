@@ -16,6 +16,11 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 
 
 ## Demo
+
+Currently the command prompt looks like this (easily customize it in zshrc)
+![prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
+
+
 Watch this to get an idea of what your Shell (well, life!) could be like!!
 
 [![asciicast](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4.png)](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4)
