@@ -3,6 +3,7 @@ A simple script to setup an awesome shell environment.
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
 * powerlevel9k theme (https://github.com/bhilburn/powerlevel9k/)
 * Powerline fonts(https://github.com/powerline/fonts)
+* Nerd-Fonts (even better!) (https://github.com/ryanoasis/nerd-fonts)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
 * zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
 * zsh-syntax-highlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
@@ -35,9 +36,11 @@ First time run it with '--cp-hist' instead, to copy command history from .bash_h
 ./quickz.sh --cp-hist  # running multiple times will duplicate history entries
 ```
 
+Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or at least on of the "Powerline Fonts".
+You can also manually install Nerd Font of your choice.
 
 ## Notes
-* If the text/icons look broken, make sure your terminal is using one of the powerline fonts. [discussion](https://github.com/powerline/fonts/issues/185). I use roboto-mono-for-powerline
+* If the text/icons look broken, make sure your terminal is using one of the Nerd fonts or at least powerline fonts. [discussion](https://github.com/powerline/fonts/issues/185). I recommend "RobotoMono Nerd Font"
 
 * marker's shortcut "Ctr+t" clashed with fzf so I rebound it to "Ctr +b"
 
