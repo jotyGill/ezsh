@@ -40,6 +40,8 @@ Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font"
 You can also manually install Nerd Font of your choice.
 
 ## Notes
+* If you are already using zsh, your zsh config will be backed up to .zshrc-backup
+
 * If the text/icons look broken, make sure your terminal is using one of the Nerd fonts or at least powerline fonts. [discussion](https://github.com/powerline/fonts/issues/185). I recommend "RobotoMono Nerd Font"
 
 * marker's shortcut "Ctr+t" clashed with fzf so I rebound it to "Ctr +b"
