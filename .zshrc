@@ -20,9 +20,9 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(docker_machine status command_execution_time background_jobs ssh public_ip todo ram load rvm time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(docker_machine status command_execution_time background_jobs public_ip todo ram load rvm time)
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh context dir rbenv vcs)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
@@ -156,5 +156,5 @@ cheat() {
 }
 
 # Matrix screen saver! will run if you have installed "cmatrix"
-TMOUT=300
-TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
+# TMOUT=900
+# TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
