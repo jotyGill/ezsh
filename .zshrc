@@ -89,6 +89,7 @@ plugins=(
     systemd
     web-search
     k
+    # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     zsh-syntax-highlighting
     )
 #plugins+=(zsh-nvm)
@@ -148,6 +149,7 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
+alias x="exit"
 
 https() {                                           # make httpie use https
     http https://$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
