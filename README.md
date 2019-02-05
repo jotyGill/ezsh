@@ -23,7 +23,7 @@ user :  directory  :  git stats : last command exit code : ip : todo tasks : fre
 
 Watch this to get an idea of what your Shell (well, life!) could be like!!
 
-[![asciicast](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4.png)](https://asciinema.org/a/DWdnOayem0yUCgQH5UrVZryM4)
+[![asciicast](https://asciinema.org/a/225226.svg)](https://asciinema.org/a/225226)
 
 
 ## Installation
