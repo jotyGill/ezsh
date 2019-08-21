@@ -147,6 +147,7 @@ autoload -U compinit && compinit        # zsh-completions
 
 SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
+
 alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
@@ -157,10 +158,34 @@ https() {                                           # make httpie use https
 
 # cheat sheets (github.com/chubin/cheat.sh), find out how to use commands
 # example 'cheat tar'
+# for language specific question supply 2 args first for language, second as the question
+# eample cheat python execute+external+program
 cheat() {
-    curl https://cheat.sh/$1 $2 $3 $4 $5 $6 $7 $8 $9 $10
+    if [ "$2" ]; then
+        curl "https://cheat.sh/$1/$2"
+    else
+        curl "https://cheat.sh/$1"
+    fi
 }
 
 # Matrix screen saver! will run if you have installed "cmatrix"
 # TMOUT=900
 # TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
+
+speedtest() {
+    curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
+}
+
+dadjoke() {
+    curl https://icanhazdadjoke.com
+}
+
+dict() {
+    if [ "$3" ]; then
+        curl "dict://dict.org/d:$1 $2 $3"
+    elif [ "$2" ]; then
+        curl "dict://dict.org/d:$1 $2"
+    else
+        curl "dict://dict.org/d:$1"
+    fi
+}

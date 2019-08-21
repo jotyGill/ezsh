@@ -12,7 +12,16 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * k (https://github.com/supercrabtree/k)
 * marker (https://github.com/pindexis/marker)
 * todotxt (https://github.com/todotxt/todo.txt-cli)
-* cheat.sh (https://github.com/chubin/cheat.sh) just an alias is all we need
+
+Sets following useful aliases:
+* l="ls -lah" - just type "l" instead of "ls -lah"
+* x="exit"
+* https - make httpie use https
+* wip - (wget -qO- https://wtfismyip.com/text) what's my ip: quickly find out external IP
+* cheat - (https://github.com/chubin/cheat.sh) cheatsheets in the terminal!
+* speedtest - (curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -) run speedtest on the fly
+* dadjoke - (curl https://icanhazdadjoke.com) terminally sick jokes
+* dict - (curl "dict://dict.org/d:$1 $2 $3")  dictionary definitions
 
 
 ## Demo
