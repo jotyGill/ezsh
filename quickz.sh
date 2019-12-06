@@ -11,8 +11,8 @@ else
 fi
 
 
-if mv -n ~/.zshrc ~/.zshrc-backup; then	# if already have zshrc-backup, keep it, don't overwrite
-	echo -e "Backed up the current .zshrc to .zshrc-backup\n"
+if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then	# backup .zshrc
+	echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 
 
