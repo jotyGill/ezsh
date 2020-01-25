@@ -1,7 +1,7 @@
 # quickz-sh
 A simple script to setup an awesome shell environment.
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
-* powerlevel9k theme (https://github.com/bhilburn/powerlevel9k/)
+* powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * Powerline fonts(https://github.com/powerline/fonts)
 * Nerd-Fonts (even better!) (https://github.com/ryanoasis/nerd-fonts)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)
@@ -14,7 +14,8 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * todotxt (https://github.com/todotxt/todo.txt-cli)
 
 Sets following useful aliases:
-* l="ls -lah" - just type "l" instead of "ls -lah"
+* l="ls -lah"     - just type "l" instead of "ls -lah"
+* alias k="k -h"						- show human readable filesizes, in kb, mb etc
 * x="exit"
 * https - make httpie use https
 * wip - (wget -qO- https://wtfismyip.com/text) what's my ip: quickly find out external IP
