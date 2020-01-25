@@ -66,20 +66,10 @@ wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoM
 
 fc-cache -fv ~/.fonts
 
-# if git clone --depth=1 https://github.com/gabrielelana/awesome-terminal-fonts.git --depth=1 ~/.quickzsh/awesome_terminal_fonts; then :
-# else
-# 	cd ~/.quickzsh/awesome_terminal_fonts && git pull
-# fi
-#
-# if ~/.quickzsh/awesome_terminal_fonts/install.sh; then
-# 	echo -e "\nawesome_terminal_fonts Installed\n"
-# else
-# 	echo -e "\nawesome_terminal_fonts Installation Failed\n"
-# fi
 
-if git clone --depth=1 https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k; then :
+if git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k; then :
 else
-	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && git pull
+	cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
 fi
 
 if git clone --depth 1 https://github.com/junegunn/fzf.git ~/.quickzsh/fzf; then :

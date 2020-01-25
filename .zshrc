@@ -12,7 +12,7 @@ export TERM="xterm-256color"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
 POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
