@@ -17,10 +17,10 @@ fi
 
 
 echo -e "Installing oh-my-zsh\n"
-if [ -d .oh-my-zsh ]; then
+if [ -d ~/.oh-my-zsh ]; then
   echo -e "oh-my-zsh is already installed"
 else
-  git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+  git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
 
 cp -f .zshrc ~/
@@ -28,7 +28,7 @@ cp -f .zshrc ~/
 
 mkdir ~/.quickzsh		# external plugins, things, will be instlled in here
 
-if [ -d ~/.oh-my-zsh/plugins/zsh-autosuggestion ]; then
+if [ -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then
 	cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
 else
   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
@@ -80,7 +80,7 @@ fi
 if [ -d ~/.oh-my-zsh/custom/plugins/k ]; then
 	cd ~/.oh-my-zsh/custom/plugins/k && git pull
 else
-  git clone --depth 1 https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
+  git clone --depth 1 https://github.com/supercrabtree/k ~/.oh-my-zsh/custom/plugins/k; then :
 fi
 
 if [ -d ~/.quickzsh/marker ]; then
@@ -113,7 +113,7 @@ else
 	echo -e "todo.sh is already instlled in ~/.quickzsh/todo/bin/\n"
 fi
 
-if [[ $1 == "--cp-hist" ]]; then
+if [[ $1 == "--cp-hist" ]] || [ $1 == "-c" ]; then
     echo -e "\nCopying bash_history to zsh_history\n"
     if command -v python &>/dev/null; then
         wget https://gist.githubusercontent.com/muendelezaji/c14722ab66b505a49861b8a74e52b274/raw/49f0fb7f661bdf794742257f58950d209dd6cb62/bash-to-zsh-hist.py
@@ -127,7 +127,7 @@ if [[ $1 == "--cp-hist" ]]; then
 		fi
     fi
 else
-    echo -e "\nNot copying bash_history to zsh_history, as --cp-hist is not supplied\n"
+    echo -e "\nNot copying bash_history to zsh_history, as --cp-hist or -c is not supplied\n"
 fi
 
 
