@@ -17,8 +17,10 @@ fi
 
 
 echo -e "Installing oh-my-zsh\n"
-if git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh; then
-	echo -e "Installed OH-MY-ZSH\n"
+if [ -d .oh-my-zsh ]; then
+  echo -e "oh-my-zsh is already installed"
+else
+  git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 fi
 
 cp -f .zshrc ~/
@@ -26,66 +28,65 @@ cp -f .zshrc ~/
 
 mkdir ~/.quickzsh		# external plugins, things, will be instlled in here
 
-
-if git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; then :
-else
+if [ -d ~/.oh-my-zsh/plugins/zsh-autosuggestion ]; then
 	cd ~/.oh-my-zsh/plugins/zsh-autosuggestions && git pull
+else
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
-if git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting; then :
-else
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
 	cd ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && git pull
+else
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
-if git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions; then :
-else
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions]; then
 	cd ~/.oh-my-zsh/custom/plugins/zsh-completions && git pull
+else
+  git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 fi
 
-if git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search; then :
-else
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search ]; then
 	cd ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search && git pull
+else
+  git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
 fi
+
 
 # INSTALL FONTS
 
-if git clone --depth=1 https://github.com/powerline/fonts.git --depth=1 ~/.quickzsh/powerline_fonts; then :
-else
-	cd ~/.quickzsh/powerline_fonts && git pull
-fi
-
-if ~/.quickzsh/powerline_fonts/install.sh && rm -rf ~/.quickzsh/powerline_fonts; then
-	echo -e "\npowerline_fonts Installed\n"
-else
-	echo -e "\npowerline_fonts Installation Failed\n"
-fi
-
+echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
 
 wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
 wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
 
 fc-cache -fv ~/.fonts
 
-
-if git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k; then :
-else
+if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 	cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
+else
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-if git clone --depth 1 https://github.com/junegunn/fzf.git ~/.quickzsh/fzf; then :
-else
+if [ -d ~/.quickzsh/fzf ]; then
 	cd ~/.quickzsh/fzf && git pull
-fi
-~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
-
-if git clone --depth 1 https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
+  ~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
 else
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.quickzsh/fzf
+  ~/.quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
+fi
+
+if [ -d ~/.oh-my-zsh/custom/plugins/k ]; then
 	cd ~/.oh-my-zsh/custom/plugins/k && git pull
+else
+  git clone --depth 1 https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k; then :
 fi
 
-if git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker; then :
-else
+if [ -d ~/.quickzsh/marker ]; then
 	cd ~/.quickzsh/marker && git pull
+else
+  git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker; then :
 fi
 
 if ~/.quickzsh/marker/install.py; then
