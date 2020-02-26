@@ -40,7 +40,7 @@ else
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 fi
 
-if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions]; then
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]; then
     cd ~/.oh-my-zsh/custom/plugins/zsh-completions && git pull
 else
     git clone --depth=1 https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
@@ -80,13 +80,13 @@ fi
 if [ -d ~/.oh-my-zsh/custom/plugins/k ]; then
     cd ~/.oh-my-zsh/custom/plugins/k && git pull
 else
-    git clone --depth 1 https://github.com/supercrabtree/k ~/.oh-my-zsh/custom/plugins/k; then :
+    git clone --depth 1 https://github.com/supercrabtree/k ~/.oh-my-zsh/custom/plugins/k
 fi
 
 if [ -d ~/.quickzsh/marker ]; then
     cd ~/.quickzsh/marker && git pull
 else
-    git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker; then :
+    git clone --depth 1 https://github.com/pindexis/marker ~/.quickzsh/marker
 fi
 
 if ~/.quickzsh/marker/install.py; then
