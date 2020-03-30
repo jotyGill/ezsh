@@ -148,7 +148,7 @@ autoload -U compinit && compinit        # zsh-completions
 SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,000
 #setopt hist_ignore_all_dups     # dont record duplicated entries in history during a single session
 
-alias wip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
+alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
 alias k="k -h"						# show human readable filesizes, in kb, mb etc
@@ -181,6 +181,7 @@ dadjoke() {
     curl https://icanhazdadjoke.com
 }
 
+# Find dictionary definition
 dict() {
     if [ "$3" ]; then
         curl "dict://dict.org/d:$1 $2 $3"
@@ -188,5 +189,25 @@ dict() {
         curl "dict://dict.org/d:$1 $2"
     else
         curl "dict://dict.org/d:$1"
+    fi
+}
+
+# Find geo info from IP
+ipgeo() {
+    # Specify ip or your ip will be used
+    if [ "$1" ]; then
+        curl "http://api.db-ip.com/v2/free/$1"
+    else
+        curl "http://api.db-ip.com/v2/free/$(myip)"
+    fi
+}
+
+# Show covid-19 spread stats
+corona() {
+    # Specify country otherwise shows stats for all
+    if [ "$1" ]; then
+        curl "https://corona-stats.online/$1"
+    else
+        curl "https://corona-stats.online"
     fi
 }
