@@ -8,9 +8,8 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * zsh-syntax-highlighting (https://github.com/zsh-users/zsh-syntax-highlighting)
 * history-substring-search (https://github.com/zsh-users/zsh-history-substring-search)
 * fzf (https://github.com/junegunn/fzf)
-* k (https://github.com/supercrabtree/k)
 * marker (https://github.com/pindexis/marker)
-* todotxt (https://github.com/todotxt/todo.txt-cli)
+
 
 Sets following useful aliases:
 * l="ls -lah"         - just type "l" instead of "ls -lah"
