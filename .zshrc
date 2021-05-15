@@ -212,3 +212,8 @@ corona() {
         curl "https://corona-stats.online"
     fi
 }
+
+for file in ~/.aliases; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
