@@ -19,6 +19,10 @@ fi
 echo -e "Installing oh-my-zsh\n"
 if [ -d ~/.config/oh-my-zsh ]; then
     echo -e "oh-my-zsh is already installed\n"
+elif [ -d ~/.oh-my-zsh ]; then
+     echo -e "oh-my-zsh in already installed at '~/.oh-my-zsh'. Moving it to '~/.config/oh-my-zsh'"
+     export ZSH="$HOME/.config/oh-my-zsh"
+     mv ~/.oh-my-zsh ~/.config/oh-my-zsh
 else
     git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.config/oh-my-zsh
 fi
@@ -26,7 +30,13 @@ fi
 cp -f .zshrc ~/
 
 
-mkdir -p ~/.config/quickzsh       # external plugins, things, will be instlled in here
+if [ -d ~/.quickzsh ]; then
+    echo -e "quickzsh is installed at '~/.quickzsh'. Moving it to '~/.config/quickzsh' \n"
+    mv ~/.quickzsh ~/.config/quickzsh
+else
+    mkdir -p ~/.config/quickzsh       # external plugins, things, will be instlled in here
+fi
+
 
 if [ -d ~/.config/oh-my-zsh/plugins/zsh-autosuggestions ]; then
     cd ~/.config/oh-my-zsh/plugins/zsh-autosuggestions && git pull
@@ -71,10 +81,10 @@ fi
 
 if [ -d ~/.~/.config/quickzsh/fzf ]; then
     cd ~/.config/quickzsh/fzf && git pull
-    ~/.config/quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
+    ~/.config/quickzsh/fzf/install --all --key-bindings --completion --no-update-rc
 else
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.config/quickzsh/fzf
-    ~/.config/quickzsh/fzf/install --all --key-bindings --completion --no-update-rc --64
+    ~/.config/quickzsh/fzf/install --all --key-bindings --completion --no-update-rc
 fi
 
 if [ -d ~/.config/oh-my-zsh/custom/plugins/k ]; then
