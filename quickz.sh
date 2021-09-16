@@ -37,6 +37,11 @@ else
     mkdir -p ~/.config/quickzsh       # external plugins, things, will be instlled in here
 fi
 
+mkdir -p ~/.cache/zsh/                # this will be used to store .zcompdump zsh completion cache files which normally clutter $HOME
+
+if [ -f ~/.zcompdump ]; then
+    mv ~/.zcompdump* ~/.cache/zsh/
+fi
 
 if [ -d ~/.config/oh-my-zsh/plugins/zsh-autosuggestions ]; then
     cd ~/.config/oh-my-zsh/plugins/zsh-autosuggestions && git pull
@@ -144,7 +149,7 @@ fi
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
 
-if chsh -s $(which zsh) && /bin/zsh -i -c upgrade_oh_my_zsh; then
+if chsh -s $(which zsh) && /bin/zsh -i -c 'omz update'; then
     echo -e "Installation Successful, exit terminal and enter a new session"
 else
     echo -e "Something is wrong"
