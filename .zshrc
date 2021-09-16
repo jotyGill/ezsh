@@ -140,7 +140,7 @@ export MARKER_KEY_NEXT_PLACEHOLDER="\C-b"   #change maker key binding from Ctr+t
 
 export PATH=$PATH:~/.quickzsh/todo/bin    #usig alias doesn't properly work
 
-autoload -U compinit && compinit        # zsh-completions
+autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
 # autoload bashcompinit                 # bash completions
 # bashcompinit
 
