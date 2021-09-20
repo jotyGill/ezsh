@@ -27,8 +27,6 @@ else
     git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.config/ezsh/oh-my-zsh
 fi
 
-cp -f .zshrc ~/
-
 
 if [ -d ~/.quickzsh ]; then
     echo -e "The setup was installed at '~/.quickzsh'. Moving it to '~/.config/ezsh' \n"
@@ -37,6 +35,10 @@ else
     mkdir -p ~/.config/ezsh       # external plugins, things, will be instlled in here
 fi
 
+cp -f .zshrc ~/
+cp -f ezshrc.zsh ~/.config/ezsh/
+
+mkdir -p ~/.config/ezsh/zshrc         # PLACE YOUR ZSHRC CONFIGURATIONS OVER THERE
 mkdir -p ~/.cache/zsh/                # this will be used to store .zcompdump zsh completion cache files which normally clutter $HOME
 
 if [ -f ~/.zcompdump ]; then
@@ -120,10 +122,11 @@ fi
 if [ ! -L ~/.config/ezsh/todo/bin/todo.sh ]; then
     echo -e "Installing todo.sh in ~/.config/ezsh/todo\n"
     mkdir -p ~/.config/ezsh/bin
+    mkdir -p ~/.config/ezsh/todo
     wget -q --show-progress "https://github.com/todotxt/todo.txt-cli/releases/download/v2.12.0/todo.txt_cli-2.12.0.tar.gz" -P ~/.config/ezsh/
     tar xvf ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz -C ~/.config/ezsh/todo --strip 1 && rm ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz
-    ln -s ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/bin/todo.sh     # so only .../bin is included in $PATH
-    ln -s ~/.config/ezsh/todo/todo.cfg ~/.todo.cfg     # it expects it there or ~/todo.cfg or ~/.todo/config
+    ln -s -f ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/bin/todo.sh     # so only .../bin is included in $PATH
+    ln -s -f ~/.config/ezsh/todo/todo.cfg ~/.todo.cfg     # it expects it there or ~/todo.cfg or ~/.todo/config
 else
     echo -e "todo.sh is already instlled in ~/.config/ezsh/todo/bin/\n"
 fi
