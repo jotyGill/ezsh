@@ -119,10 +119,10 @@ fi
 # ln -s ~/.config/ezsh/todo ~/.todo
 if [ ! -L ~/.config/ezsh/todo/bin/todo.sh ]; then
     echo -e "Installing todo.sh in ~/.config/ezsh/todo\n"
-    mkdir -p ~/.config/ezsh/todo/bin
-    wget -q --show-progress "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz" -P ~/.config/ezsh/
-    tar xvf ~/.config/ezsh/todo.txt_cli-2.11.0.tar.gz -C ~/.config/ezsh/todo --strip 1 && rm ~/.config/ezsh/todo.txt_cli-2.11.0.tar.gz
-    ln -s ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/todo/bin/todo.sh     # so only .../bin is included in $PATH
+    mkdir -p ~/.config/ezsh/bin
+    wget -q --show-progress "https://github.com/todotxt/todo.txt-cli/releases/download/v2.12.0/todo.txt_cli-2.12.0.tar.gz" -P ~/.config/ezsh/
+    tar xvf ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz -C ~/.config/ezsh/todo --strip 1 && rm ~/.config/ezsh/todo.txt_cli-2.12.0.tar.gz
+    ln -s ~/.config/ezsh/todo/todo.sh ~/.config/ezsh/bin/todo.sh     # so only .../bin is included in $PATH
     ln -s ~/.config/ezsh/todo/todo.cfg ~/.todo.cfg     # it expects it there or ~/todo.cfg or ~/.todo/config
 else
     echo -e "todo.sh is already instlled in ~/.config/ezsh/todo/bin/\n"
@@ -145,6 +145,10 @@ else
     echo -e "\nNot copying bash_history to zsh_history, as --cp-hist or -c is not supplied\n"
 fi
 
+ZDOTDIR="~/.config/ezsh/zshrc"
+if [ ! -d $ZDOTDIR ]; then
+    mkdir -p $ZDOTDIR
+fi
 
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
