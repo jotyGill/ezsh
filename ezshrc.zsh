@@ -97,7 +97,7 @@ plugins=(
     )
 #plugins+=(zsh-nvm)
 
-# source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files 
 
 # User configuration
 
@@ -155,7 +155,6 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lah"
 alias x="exit"
-alias k="k -h"						# show human readable filesizes, in kb, mb etc
 
 
 # CUSTOM FUNCTIONS
