@@ -20,13 +20,13 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status command_execution_time background_jobs todo ram load rvm time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs ram load rvm time)
 
 # more prompt elements that are suggested
 # (public_ip docker_machine pyenv nvm)          https://github.com/bhilburn/powerlevel9k#prompt-customization
 # Note: using public_ip is cool but when connection is down prompt waits for 10-20 seconds
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir rbenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir vcs)
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
@@ -74,27 +74,30 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
     zsh-completions
     zsh-autosuggestions
+    zsh-syntax-highlighting
     history-substring-search
+    git
     python
-    httpie
-    docker
-    lol
-    pip
-    pyenv
-    redis-cli
     screen
     systemd
     web-search
     k
+    extract
+    z
+    sudo
+    # httpie
+    # docker
+    # lol
+    # pip
+    # pyenv
+    # redis-cli
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
-    zsh-syntax-highlighting
     )
 #plugins+=(zsh-nvm)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -169,31 +172,6 @@ cheat() {
     fi
 }
 
-extract ()
-{
-    filetoextract=$1
-    if [ -f "${filetoextract}" ] ; then
-        case "${filetoextract}" in
-            *.tar.bz2)   tar xjf "${filetoextract}"   ;;
-            *.tar.gz)    tar xzf "${filetoextract}"   ;;
-            *.bz2)       bunzip2 "${filetoextract}"   ;;
-            *.rar)       unrar x "${filetoextract}"   ;;
-            *.gz)        gunzip "${filetoextract}"    ;;
-            *.tar)       tar xf "${filetoextract}"    ;;
-            *.tbz2)      tar xjf "${filetoextract}"   ;;
-            *.tgz)       tar xzf "${filetoextract}"   ;;
-            *.zip)       unzip "${filetoextract}"     ;;
-            *.Z)         uncompress "${filetoextract}";;
-            *.7z)        7z x "${filetoextract}"      ;;
-            *.deb)       ar x "${filetoextract}"      ;;
-            *.tar.xz)    tar xf "${filetoextract}"    ;;
-            *.tar.zst)   unzstd "${filetoextract}"    ;;
-            *)           echo "'"${filetoextract}"' cannot be extracted via ex()" ;;
-        esac
-    else
-        echo "'"${filetoextract}"' does not exist in $PWD"
-    fi
-}
 
 # Matrix screen saver! will run if you have installed "cmatrix"
 # TMOUT=900
