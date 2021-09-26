@@ -12,10 +12,10 @@ source "$HOME/.config/ezsh/ezshrc.zsh"
 
 # Any zshrc configurations under the folder ~/.config/ezsh/zshrc/ will override the default ezsh configs.
 # Place all of your personal configurations over there
-ZDOTDIR="$HOME/.config/ezsh/zshrc"
+ZSH_CONFIGS_DIR="$HOME/.config/ezsh/zshrc"
 
-if [ "$(ls -A $ZDOTDIR)" ]; then
-    for file in "$ZDOTDIR"/*; do
+if [ "$(ls -A $ZSH_CONFIGS_DIR)" ]; then
+    for file in "$ZSH_CONFIGS_DIR"/*; do
         source "$file"
     done
 fi
