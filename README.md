@@ -1,4 +1,4 @@
-# quickz-sh
+# ezsh
 A simple script to setup an awesome shell environment.
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
@@ -27,9 +27,9 @@ Sets following useful aliases:
 
 ## Demo
 
-Currently the command prompt looks like this (easily customize it in zshrc)
+Currently the command prompt looks like this (easily customize it by placing your config in ~/.config/ezsh/zshrc/)
 ![prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
-user :  directory  :  git stats : last command exit code : ip : todo tasks : free memory: load : time
+user :  directory  :  git stats : last command exit code                     free memory: load : time
 
 Watch this to get an idea of what your Shell (well, life!) could be like!!
 
@@ -42,9 +42,9 @@ Requirements:
 * `python3` or `python` is required to run option '-c' which copies history from .bash_history
 
 ``` bash
-git clone https://github.com/jotyGill/quickz-sh.git
-cd quickz-sh
-./quickz.sh -c        # only run with '-c' the first time, running multiple times will duplicate history entries
+git clone https://github.com/jotyGill/ezsh
+cd ezsh
+./ez.sh -c        # only run with '-c' the first time, running multiple times will duplicate history entries
 ```
 
 Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or "DejaVu Sans Mono Nerd Fonts".
