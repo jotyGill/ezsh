@@ -103,7 +103,7 @@ fi
 if [ -d ~/.config/ezsh/marker ]; then
     cd ~/.config/ezsh/marker && git pull
 else
-    git clone --depth 1 https://github.com/pindexis/marker ~/.config/ezsh/marker
+    git clone --depth 1 https://github.com/jotyGill/marker ~/.config/ezsh/marker
 fi
 
 if ~/.config/ezsh/marker/install.py; then

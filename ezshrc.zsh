@@ -78,8 +78,6 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     history-substring-search
-    git
-    python
     screen
     systemd
     web-search
@@ -88,6 +86,8 @@ plugins=(
     z
     sudo
     # httpie
+    # git
+    # python
     # docker
     # lol
     # pip
