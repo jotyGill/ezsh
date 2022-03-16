@@ -24,7 +24,7 @@ elif [ -d ~/.oh-my-zsh ]; then
      export ZSH="$HOME/.config/ezsh/oh-my-zsh"
      mv ~/.oh-my-zsh ~/.config/ezsh/oh-my-zsh
 else
-    git clone --depth=1 git://github.com/robbyrussell/oh-my-zsh.git ~/.config/ezsh/oh-my-zsh
+    git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.config/ezsh/oh-my-zsh
 fi
 
 
