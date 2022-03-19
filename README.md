@@ -1,4 +1,4 @@
-# quickz-sh
+# ezsh
 A simple script to setup an awesome shell environment.
 Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
@@ -12,10 +12,15 @@ Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-
 * marker (https://github.com/pindexis/marker)
 * todotxt (https://github.com/todotxt/todo.txt-cli)
 
-Sets following useful aliases:
+Sets following useful aliases and ohmyzsh plugins. **You can add more or overwrite these in your personal zsh config files under `~/.config/ezsh/zshrc/`** 
 * l="ls -lah"         - just type "l" instead of "ls -lah"
 * alias k="k -h"	  - show human readable filesizes, in kb, mb etc
-* x="exit"
+* e="exit"
+* [x="extract"](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)         - extract any compressed files
+* [z](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z)   - quickly jump to most visited directories
+* [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)    - search on the web from cli
+* [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                - easily prefix your commands with sudo by pressing `esc` twice
+* [systemd](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd)          - many useful aliases for systemd
 * https               - make httpie use https
 * myip - (wget -qO- https://wtfismyip.com/text)       - what's my ip: quickly find out external IP
 * cheat - (https://github.com/chubin/cheat.sh)        - cheatsheets in the terminal!
@@ -27,9 +32,9 @@ Sets following useful aliases:
 
 ## Demo
 
-Currently the command prompt looks like this (easily customize it in zshrc)
+Command prompt looks like this (easily customize it by placing your configs in ~/.config/ezsh/zshrc/)
 ![prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
-user :  directory  :  git stats : last command exit code : ip : todo tasks : free memory: load : time
+user :  directory  :  git stats : last command exit code                     free memory: load : time
 
 Watch this to get an idea of what your Shell (well, life!) could be like!!
 
@@ -42,12 +47,12 @@ Requirements:
 * `python3` or `python` is required to run option '-c' which copies history from .bash_history
 
 ``` bash
-git clone https://github.com/jotyGill/quickz-sh.git
-cd quickz-sh
-./quickz.sh -c        # only run with '-c' the first time, running multiple times will duplicate history entries
+git clone https://github.com/jotyGill/ezsh
+cd ezsh
+./install.sh -c        # only run with '-c' the first time, running multiple times will duplicate history entries
 ```
-
-Change your terminals fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or "DejaVu Sans Mono Nerd Fonts".
+This will install the setup under `~/.config/ezsh/`
+Change your terminal's fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font" or "DejaVu Sans Mono Nerd Fonts".
 You can also manually install Nerd Fonts of your choice.
 
 ## Notes
@@ -57,9 +62,9 @@ You can also manually install Nerd Fonts of your choice.
 
 * marker's shortcut "Ctr+t" clashed with fzf so I rebound it to "Ctr +b"
 
-* All oh-my-zsh plugins are installed under ~/.oh-my-zsh, Other tools (fzf,marker,todo) are installed in ~/.quickzsh
+* All oh-my-zsh plugins are installed under ~/.config/ezsh/oh-my-zsh/plugin, Other tools (fzf,marker,todo) are installed in ~/.config/ezsh/
 
-* The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by editing POWERLEVEL9K settings in .zshrc (from line ~15)
-
+* The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by overwriting POWERLEVEL10K settings
+in your personal config file under ~/.config/ezsh/zshrc/ . See my setup under example/personal_rc.zsh
 
 Suggestions about more cool tools are always welcome :)
