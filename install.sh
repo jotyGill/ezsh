@@ -26,7 +26,7 @@ elif [ -d ~/.oh-my-zsh ]; then
     mv ~/.oh-my-zsh ~/.config/ezsh/oh-my-zsh
     git -C ~/.config/ezsh/oh-my-zsh remote set-url origin https://github.com/ohmyzsh/ohmyzsh.git
 else
-    git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git ~/.config/ezsh/oh-my-zsh
+    git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.config/ezsh/oh-my-zsh
 fi
 
 
