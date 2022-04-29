@@ -10,11 +10,15 @@ else
     fi
 fi
 
-
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then # backup .zshrc
     echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 
+mkdir -p ~/.config/ezsh       # the setup will be installed in here
+
+if [ -d ~/.quickzsh ]; then
+    echo -e "\n PREVIOUS SETUP FOUND AT '~/.quickzsh'. PLEASE MANUALLY MOVE ANY FILES YOU'D LIKE TO '~/.config/ezsh' \n"
+fi
 
 echo -e "Installing oh-my-zsh\n"
 if [ -d ~/.config/ezsh/oh-my-zsh ]; then
@@ -27,14 +31,6 @@ elif [ -d ~/.oh-my-zsh ]; then
     git -C ~/.config/ezsh/oh-my-zsh remote set-url origin https://github.com/ohmyzsh/ohmyzsh.git
 else
     git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.config/ezsh/oh-my-zsh
-fi
-
-
-if [ -d ~/.quickzsh ]; then
-    echo -e "The setup was installed at '~/.quickzsh'. Moving it to '~/.config/ezsh' \n"
-    mv ~/.quickzsh ~/.config/ezsh
-else
-    mkdir -p ~/.config/ezsh       # external plugins, things, will be instlled in here
 fi
 
 cp -f .zshrc ~/
