@@ -146,11 +146,6 @@ else
     echo -e "\nNot copying bash_history to zsh_history, as --cp-hist or -c is not supplied\n"
 fi
 
-ZDOTDIR="~/.config/ezsh/zshrc"
-if [ ! -d $ZDOTDIR ]; then
-    mkdir -p $ZDOTDIR
-fi
-
 # source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
 
