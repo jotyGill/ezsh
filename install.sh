@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Check if ZSH and Git are installed
 if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null; then
     echo -e "ZSH and Git are already installed\n"
 else
@@ -10,15 +11,13 @@ else
     fi
 fi
 
+# Create .zshrc backup
 if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then # backup .zshrc
     echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 
-mkdir -p ~/.config/ezsh       # the setup will be installed in here
-
-if [ -d ~/.quickzsh ]; then
-    echo -e "\n PREVIOUS SETUP FOUND AT '~/.quickzsh'. PLEASE MANUALLY MOVE ANY FILES YOU'D LIKE TO '~/.config/ezsh' \n"
-fi
+# Setup will be installed in here
+mkdir -p ~/.config/ezsh
 
 echo -e "Installing oh-my-zsh\n"
 if [ -d ~/.config/ezsh/oh-my-zsh ]; then
@@ -69,14 +68,16 @@ fi
 
 
 # INSTALL FONTS
-
-echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
-
+echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono, MesloLGS\n"
 wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
 wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
 wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-
+wget -q --show-progress -N https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -P ~/.fonts/
 fc-cache -fv ~/.fonts
+
 
 if [ -d ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k ]; then
     cd ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k && git pull
@@ -84,7 +85,7 @@ else
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.config/ezsh/oh-my-zsh/custom/themes/powerlevel10k
 fi
 
-if [ -d ~/.~/.config/ezsh/fzf ]; then
+if [ -d ~/.config/ezsh/fzf ]; then
     cd ~/.config/ezsh/fzf && git pull
     ~/.config/ezsh/fzf/install --all --key-bindings --completion --no-update-rc
 else
@@ -151,7 +152,7 @@ if [ ! -d $ZDOTDIR ]; then
     mkdir -p $ZDOTDIR
 fi
 
-# source ~/.zshrc
+source ~/.zshrc
 echo -e "\nSudo access is needed to change default shell\n"
 
 if chsh -s $(which zsh) && /bin/zsh -i -c 'omz update'; then
