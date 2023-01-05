@@ -14,7 +14,9 @@ if mv -n ~/.zshrc ~/.zshrc-backup-$(date +"%Y-%m-%d"); then # backup .zshrc
     echo -e "Backed up the current .zshrc to .zshrc-backup-date\n"
 fi
 
-mkdir -p ~/.config/ezsh       # the setup will be installed in here
+echo -e "The setup will be installed in '~/.config/ezsh'\n"
+echo -e "Place your personal zshrc config files under '~/.config/ezsh/zshrc/'\n"
+mkdir -p ~/.config/ezsh/zshrc
 
 if [ -d ~/.quickzsh ]; then
     echo -e "\n PREVIOUS SETUP FOUND AT '~/.quickzsh'. PLEASE MANUALLY MOVE ANY FILES YOU'D LIKE TO '~/.config/ezsh' \n"
