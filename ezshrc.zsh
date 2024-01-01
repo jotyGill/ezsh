@@ -75,7 +75,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     zsh-completions
-    zsh-autosuggestions
+    # zsh-autosuggestions     # disable when using marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
     screen
@@ -150,6 +150,7 @@ SAVEHIST=50000      #save upto 50,000 lines in history. oh-my-zsh default is 10,
 alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip address
 alias l="ls -lAhrtF"    # show all except . .. , sort by recent, / at the end of folders
 alias e="exit"
+alias ip="ip --color=auto"
 
 
 # CUSTOM FUNCTIONS
@@ -200,12 +201,3 @@ ipgeo() {
     fi
 }
 
-# Show covid-19 spread stats
-corona() {
-    # Specify country otherwise shows stats for all
-    if [ "$1" ]; then
-        curl "https://corona-stats.online/$1"
-    else
-        curl "https://corona-stats.online"
-    fi
-}

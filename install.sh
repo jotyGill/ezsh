@@ -1,9 +1,29 @@
 #!/bin/bash
 
+# Flags to determine if the arguments were passed
+cp_hist_flag=false
+noninteractive_flag=false
+
+# Loop through all arguments
+for arg in "$@"
+do
+    case $arg in
+        --cp-hist|-c)
+            cp_hist_flag=true
+            ;;
+        --non-interactive|-n)
+            noninteractive_flag=true
+            ;;
+        *)
+            # Handle any other arguments or provide an error message
+            ;;
+    esac
+done
+
 if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null; then
     echo -e "ZSH and Git are already installed\n"
 else
-    if sudo apt install -y zsh git wget || sudo pacman -S zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget || pkg install git zsh wget ; then
+    if sudo apt install -y zsh git wget autoconf || sudo pacman -S zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget || pkg install git zsh wget ; then
         echo -e "zsh wget and git Installed\n"
     else
         echo -e "Please install the following packages first, then try again: zsh git wget \n" && exit
@@ -40,6 +60,7 @@ cp -f ezshrc.zsh ~/.config/ezsh/
 
 mkdir -p ~/.config/ezsh/zshrc         # PLACE YOUR ZSHRC CONFIGURATIONS OVER THERE
 mkdir -p ~/.cache/zsh/                # this will be used to store .zcompdump zsh completion cache files which normally clutter $HOME
+mkdir -p ~/.fonts                     # Create .fonts if doesn't exist
 
 if [ -f ~/.zcompdump ]; then
     mv ~/.zcompdump* ~/.cache/zsh/
@@ -74,9 +95,9 @@ fi
 
 echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
 
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/RobotoMonoNerdFont-Regular.ttf -P ~/.fonts/
+wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFont-Regular.ttf -P ~/.fonts/
 
 fc-cache -fv ~/.fonts
 
@@ -98,6 +119,12 @@ if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/k ]; then
     cd ~/.config/ezsh/oh-my-zsh/custom/plugins/k && git pull
 else
     git clone --depth 1 https://github.com/supercrabtree/k ~/.config/ezsh/oh-my-zsh/custom/plugins/k
+fi
+
+if [ -d ~/.config/ezsh/oh-my-zsh/custom/plugins/fzf-tab ]; then
+    cd ~/.config/ezsh/oh-my-zsh/custom/plugins/fzf-tab && git pull
+else
+    git clone --depth 1 https://github.com/Aloxaf/fzf-tab ~/.config/ezsh/oh-my-zsh/custom/plugins/fzf-tab
 fi
 
 if [ -d ~/.config/ezsh/marker ]; then
@@ -130,8 +157,7 @@ if [ ! -L ~/.config/ezsh/todo/bin/todo.sh ]; then
 else
     echo -e "todo.sh is already instlled in ~/.config/ezsh/todo/bin/\n"
 fi
-
-if [[ $1 == "--cp-hist" ]] || [[ $1 == "-c" ]]; then
+if [ "$cp_hist_flag" = true ]; then
     echo -e "\nCopying bash_history to zsh_history\n"
     if command -v python &>/dev/null; then
         wget -q --show-progress https://gist.githubusercontent.com/muendelezaji/c14722ab66b505a49861b8a74e52b274/raw/49f0fb7f661bdf794742257f58950d209dd6cb62/bash-to-zsh-hist.py
@@ -148,12 +174,20 @@ else
     echo -e "\nNot copying bash_history to zsh_history, as --cp-hist or -c is not supplied\n"
 fi
 
-# source ~/.zshrc
-echo -e "\nSudo access is needed to change default shell\n"
-
-if chsh -s $(which zsh) && /bin/zsh -i -c 'omz update'; then
-    echo -e "Installation Successful, exit terminal and enter a new session"
+if [ "$noninteractive_flag" = true ]; then
+    echo -e "Installation complete, exit terminal and enter a new zsh session\n"
+    echo -e "Make sure to change zsh to default shell by running: chsh -s $(which zsh)"
+    echo -e "In a new zsh session manually run: build-fzf-tab-module"
 else
-    echo -e "Something is wrong"
+    # source ~/.zshrc
+    echo -e "\nSudo access is needed to change default shell\n"
+
+    if chsh -s $(which zsh) && /bin/zsh -i -c 'omz update'; then
+        echo -e "Installation complete, exit terminal and enter a new zsh session"
+        echo -e "In a new zsh session manually run: build-fzf-tab-module"
+    else
+        echo -e "Something is wrong"
+
+    fi
 fi
 exit
