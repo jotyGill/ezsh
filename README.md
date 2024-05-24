@@ -56,6 +56,8 @@ Change your terminal's fonts to either "RobotoMono Nerd Font" or "Hack Nerd Font
 You can also manually install Nerd Fonts of your choice.
 
 ## Notes
+* Make sure to use any terminal besides QTerminal (default one in kali-xfce), here back space doesn't work for some reason (alt+back does). I recommend xfce4-terminal for Kali
+
 * If you are already using zsh, your zsh config will be backed up to .zshrc-backup-date
 
 * If the text/icons look broken, make sure your terminal is using one of the Nerd fonts. [discussion](https://github.com/powerline/fonts/issues/185). I recommend "RobotoMono Nerd Font"
@@ -64,8 +66,10 @@ You can also manually install Nerd Fonts of your choice.
 
 * All oh-my-zsh plugins are installed under ~/.config/ezsh/oh-my-zsh/plugin, Other tools (fzf,marker,todo) are installed in ~/.config/ezsh/
 
+* zsh-autosuggestions is not currently enabled due to a conflict with Marker. If you don't use Marker, enable it by adding `plugins+=(zsh-autosuggestions)` into your personal config file
+
 * The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by overwriting POWERLEVEL10K settings
-in your personal config file under ~/.config/ezsh/zshrc/ . See my setup under example/personal_rc.zsh
+in your personal config file under ~/.config/ezsh/zshrc/ . See example setup under example/personal_rc.zsh
 
 Suggestions about more cool tools are always welcome :)
 
