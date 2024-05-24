@@ -15,8 +15,11 @@ source "$HOME/.config/ezsh/ezshrc.zsh"
 ZSH_CONFIGS_DIR="$HOME/.config/ezsh/zshrc"
 
 if [ "$(ls -A $ZSH_CONFIGS_DIR)" ]; then
-    for file in "$ZSH_CONFIGS_DIR"/*; do
-        source "$file"
+    for file in "$ZSH_CONFIGS_DIR"/* "$ZSH_CONFIGS_DIR"/.*; do
+        # Exclude '.' and '..' from being sourced
+        if [ -f "$file" ]; then
+            source "$file"
+        fi
     done
 fi
 
