@@ -68,3 +68,6 @@ You can also manually install Nerd Fonts of your choice.
 in your personal config file under ~/.config/ezsh/zshrc/ . See my setup under example/personal_rc.zsh
 
 Suggestions about more cool tools are always welcome :)
+
+### To Uninstall
+To uninstall simply delete ~/.zshrc and ~/.config/ezsh/. The script creates a backup of your original .zshrc in the home folder with the filename indicating it's a backup. Rename it back to .zshrc
