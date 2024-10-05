@@ -4,6 +4,9 @@
 # Additional OH-MY-ZSH plugins to enable
 plugins+=(lol httpie docker docker-compose pyenv pip)
 
+# Remove OH-MY-ZSH plugins from the default config
+plugins=(${plugins:#(zsh-autosuggestions|lol)})
+
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status command_execution_time background_jobs todo ram load rvm time)
 
 
