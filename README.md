@@ -63,7 +63,7 @@ You can also manually install Nerd Fonts of your choice.
 
 * All oh-my-zsh plugins are installed under ~/.config/ezsh/oh-my-zsh/plugin, Other tools (fzf,marker,todo) are installed in ~/.config/ezsh/
 
-* zsh-autosuggestions is not currently enabled due to a conflict with Marker. If you don't use Marker, enable it by adding `plugins+=(zsh-autosuggestions)` into your personal config file
+* If you use Marker, disable zsh-autosuggestions as it has a conflict with Marker (completion looks ugly). Add `plugins=(${plugins:#(zsh-autosuggestions)})` into your personal config file to remove it
 
 * The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by overwriting POWERLEVEL10K settings
 in your personal config file under ~/.config/ezsh/zshrc/ . See example setup under example/personal_rc.zsh
