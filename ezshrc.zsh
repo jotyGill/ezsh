@@ -75,7 +75,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     zsh-completions
-    # zsh-autosuggestions     # disable when using marker, otherwise enable
+    zsh-autosuggestions     # Disable if you are using Marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
     screen
@@ -167,7 +167,6 @@ cheat() {
     fi
 }
 
-
 # Matrix screen saver! will run if you have installed "cmatrix"
 # TMOUT=900
 # TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
@@ -178,17 +177,6 @@ speedtest() {
 
 dadjoke() {
     curl https://icanhazdadjoke.com
-}
-
-# Find dictionary definition
-dict() {
-    if [ "$3" ]; then
-        curl "dict://dict.org/d:$1 $2 $3"
-    elif [ "$2" ]; then
-        curl "dict://dict.org/d:$1 $2"
-    else
-        curl "dict://dict.org/d:$1"
-    fi
 }
 
 # Find geo info from IP
