@@ -75,7 +75,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     zsh-completions
-    # zsh-autosuggestions     # disable when using marker, otherwise enable
+    zsh-autosuggestions     # Disable if you are using Marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
     screen
@@ -151,6 +151,9 @@ alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip add
 alias l="ls --hyperlink=auto -lAhrtF"    # show all except . .. , sort by recent, / at the end of folders, clickable
 alias e="exit"
 alias ip="ip --color=auto"
+## Install EZA to use this. The better ls command
+alias a='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink'  #the new ls
+alias aa='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink -s modified -r'#sort by new
 
 
 # CUSTOM FUNCTIONS
@@ -167,7 +170,6 @@ cheat() {
     fi
 }
 
-
 # Matrix screen saver! will run if you have installed "cmatrix"
 # TMOUT=900
 # TRAPALRM() { if command -v cmatrix &> /dev/null; then cmatrix -sb; fi }
@@ -178,17 +180,6 @@ speedtest() {
 
 dadjoke() {
     curl https://icanhazdadjoke.com
-}
-
-# Find dictionary definition
-dict() {
-    if [ "$3" ]; then
-        curl "dict://dict.org/d:$1 $2 $3"
-    elif [ "$2" ]; then
-        curl "dict://dict.org/d:$1 $2"
-    else
-        curl "dict://dict.org/d:$1"
-    fi
 }
 
 # Find geo info from IP

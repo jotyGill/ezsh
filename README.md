@@ -16,19 +16,16 @@ Sets following useful aliases and ohmyzsh plugins. **You can add more or overwri
 * l="ls -lah"         - just type "l" instead of "ls -lah"
 * alias k="k -h"	  - show human readable filesizes, in kb, mb etc
 * e="exit"
+* myip - (wget -qO- https://wtfismyip.com/text)       - what's my ip: quickly find out external IP
+* cheat - (https://github.com/chubin/cheat.sh)        - cheatsheets in the terminal!
+* speedtest - (curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -) run speedtest on the fly
+* dadjoke - (curl https://icanhazdadjoke.com)         - terminally sick jokes
+* ipgeo - (curl "http://api.db-ip.com/v2/free/$1")    - finds geo location from IP
 * [x="extract"](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)         - extract any compressed files
 * [z](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z)   - quickly jump to most visited directories
 * [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)    - search on the web from cli
 * [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                - easily prefix your commands with sudo by pressing `esc` twice
 * [systemd](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd)          - many useful aliases for systemd
-* https               - make httpie use https
-* myip - (wget -qO- https://wtfismyip.com/text)       - what's my ip: quickly find out external IP
-* cheat - (https://github.com/chubin/cheat.sh)        - cheatsheets in the terminal!
-* speedtest - (curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -) run speedtest on the fly
-* dadjoke - (curl https://icanhazdadjoke.com)         - terminally sick jokes
-* dict - (curl "dict://dict.org/d:$1 $2 $3")          - dictionary definitions
-* ipgeo - (curl "http://api.db-ip.com/v2/free/$1")    - finds geo location from IP
-* corona - (curl "https://corona-stats.online/")      - shows corona virus spread live stats
 
 ## Demo
 
@@ -66,7 +63,7 @@ You can also manually install Nerd Fonts of your choice.
 
 * All oh-my-zsh plugins are installed under ~/.config/ezsh/oh-my-zsh/plugin, Other tools (fzf,marker,todo) are installed in ~/.config/ezsh/
 
-* zsh-autosuggestions is not currently enabled due to a conflict with Marker. If you don't use Marker, enable it by adding `plugins+=(zsh-autosuggestions)` into your personal config file
+* If you use Marker, disable zsh-autosuggestions as it has a conflict with Marker (completion looks ugly). Add `plugins=(${plugins:#(zsh-autosuggestions)})` into your personal config file to remove it
 
 * The look of the shell can be very easily customised[https://github.com/bhilburn/powerlevel9k#prompt-customization] by overwriting POWERLEVEL10K settings
 in your personal config file under ~/.config/ezsh/zshrc/ . See example setup under example/personal_rc.zsh
