@@ -151,6 +151,9 @@ alias myip="wget -qO- https://wtfismyip.com/text"	# quickly show external ip add
 alias l="ls --hyperlink=auto -lAhrtF"    # show all except . .. , sort by recent, / at the end of folders, clickable
 alias e="exit"
 alias ip="ip --color=auto"
+## Install EZA to use this. The better ls command
+alias a='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink'  #the new ls
+alias aa='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink -s modified -r'#sort by new
 
 
 # CUSTOM FUNCTIONS
