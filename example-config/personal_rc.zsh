@@ -9,5 +9,4 @@ plugins=(${plugins:#(zsh-autosuggestions|lol)})
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status command_execution_time background_jobs todo ram load rvm time)
 
-
 # Custom Aliases, add your personal aliases here

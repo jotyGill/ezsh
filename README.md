@@ -16,16 +16,16 @@ Sets following useful aliases and ohmyzsh plugins. **You can add more or overwri
 * l="ls -lah"         - just type "l" instead of "ls -lah"
 * alias k="k -h"	  - show human readable filesizes, in kb, mb etc
 * e="exit"
-* [x="extract"](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)         - extract any compressed files
-* [z](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z)   - quickly jump to most visited directories
-* [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)    - search on the web from cli
-* [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                - easily prefix your commands with sudo by pressing `esc` twice
-* [systemd](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd)          - many useful aliases for systemd
 * myip - (wget -qO- https://wtfismyip.com/text)       - what's my ip: quickly find out external IP
 * cheat - (https://github.com/chubin/cheat.sh)        - cheatsheets in the terminal!
 * speedtest - (curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -) run speedtest on the fly
 * dadjoke - (curl https://icanhazdadjoke.com)         - terminally sick jokes
 * ipgeo - (curl "http://api.db-ip.com/v2/free/$1")    - finds geo location from IP
+* [x="extract"](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)         - extract any compressed files
+* [z](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z)   - quickly jump to most visited directories
+* [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)    - search on the web from cli
+* [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                - easily prefix your commands with sudo by pressing `esc` twice
+* [systemd](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd)          - many useful aliases for systemd
 
 ## Demo
 
