@@ -14,14 +14,11 @@ source "$HOME/.config/ezsh/ezshrc.zsh"
 # Place all of your personal configurations over there
 ZSH_CONFIGS_DIR="$HOME/.config/ezsh/zshrc"
 
-if [ "$(ls -A $ZSH_CONFIGS_DIR)" ]; then
-    for file in "$ZSH_CONFIGS_DIR"/* "$ZSH_CONFIGS_DIR"/.*; do
-        # Exclude '.' and '..' from being sourced
-        if [ -f "$file" ]; then
-            source "$file"
-        fi
-    done
-fi
+for file in "$ZSH_CONFIGS_DIR"/*(DN); do
+    if [ -f "$file" ]; then
+        source "$file"
+    fi
+done
 
 # Now source oh-my-zsh.sh so that any plugins added in ~/.config/ezsh/zshrc/* files also get loaded
 source $ZSH/oh-my-zsh.sh
