@@ -15,6 +15,7 @@ source "$HOME/.config/ezsh/ezshrc.zsh"
 ZSH_CONFIGS_DIR="$HOME/.config/ezsh/zshrc"
 
 for file in "$ZSH_CONFIGS_DIR"/*(DN); do
+    # Exclude '.' and '..' from being sourced
     if [ -f "$file" ]; then
         source "$file"
     fi
@@ -23,6 +24,8 @@ done
 # Now source oh-my-zsh.sh so that any plugins added in ~/.config/ezsh/zshrc/* files also get loaded
 source $ZSH/oh-my-zsh.sh
 
+# To customize prompt look, edit ~/.config/ezsh/p10k.zsh or run `p10k configure`
+[[ ! -f ~/.config/ezsh/p10k.zsh ]] || source ~/.config/ezsh/p10k.zsh
 
 # Configs that can only work after "source $ZSH/oh-my-zsh.sh", such as Aliases that depend oh-my-zsh plugins
 
