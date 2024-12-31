@@ -9,27 +9,7 @@ export ZSH=$HOME/.config/ezsh/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs ram load rvm time)
-
-# more prompt elements that are suggested
-# (public_ip docker_machine pyenv nvm)          https://github.com/bhilburn/powerlevel9k#prompt-customization
-# Note: using public_ip is cool but when connection is down prompt waits for 10-20 seconds
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir vcs)
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,13 +58,12 @@ plugins=(
     zsh-autosuggestions     # Disable if you are using Marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
-    screen
     systemd
-    web-search
     k
     extract
     z
     sudo
+    # web-search
     # httpie
     # git
     # python
@@ -95,6 +74,7 @@ plugins=(
     # redis-cli
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     )
+# Plugins can be added like into your own config file like this:
 #plugins+=(zsh-nvm)
 
 # source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files 
@@ -128,8 +108,9 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add to PATH to Install and run programs with "pip install --user"
-export PATH=$PATH:~/.local/bin
+# Add to PATH to run programs installed with pipx or "pip install --user"
+# This path gets preference. if you need to run versions installed by system, directly use full path i.e /usr/bin/PROGRAM
+export PATH=~/.local/bin:$PATH
 
 export PATH=$PATH:~/.config/ezsh/bin
 
