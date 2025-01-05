@@ -1,6 +1,6 @@
 # ezsh
 A simple script to setup an awesome shell environment.
-Quickly install and setup zsh and oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh) with
+Quickly install and setup zsh and oh-my-zsh (https://github.com/ohmyzsh/ohmyzsh/) with
 * powerlevel10k theme (https://github.com/romkatv/powerlevel10k)
 * Nerd-Fonts (https://github.com/ryanoasis/nerd-fonts)
 * zsh-completions (https://github.com/zsh-users/zsh-completions)

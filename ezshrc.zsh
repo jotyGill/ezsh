@@ -54,7 +54,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-completions
+    # zsh-completions   INSTALL METHOD CHANGED https://github.com/zsh-users/zsh-completions/issues/603
     zsh-autosuggestions     # Disable if you are using Marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
@@ -63,6 +63,7 @@ plugins=(
     extract
     z
     sudo
+    fzf-tab
     # web-search
     # httpie
     # git
@@ -76,6 +77,8 @@ plugins=(
     )
 # Plugins can be added like into your own config file like this:
 #plugins+=(zsh-nvm)
+
+# fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"   # install zsh-completions, if you need it
 
 # source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files 
 
@@ -119,7 +122,7 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 [[ -s "$HOME/.config/ezsh/marker/marker.sh" ]] && source "$HOME/.config/ezsh/marker/marker.sh"
 
-autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
+# autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
 # autoload bashcompinit                 # bash completions
 # bashcompinit
 
