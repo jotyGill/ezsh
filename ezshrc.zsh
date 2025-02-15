@@ -9,27 +9,7 @@ export ZSH=$HOME/.config/ezsh/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
-
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs ram load rvm time)
-
-# more prompt elements that are suggested
-# (public_ip docker_machine pyenv nvm)          https://github.com/bhilburn/powerlevel9k#prompt-customization
-# Note: using public_ip is cool but when connection is down prompt waits for 10-20 seconds
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh os_icon context dir vcs)
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,17 +54,17 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    zsh-completions
+    # zsh-completions   INSTALL METHOD CHANGED https://github.com/zsh-users/zsh-completions/issues/603
     zsh-autosuggestions     # Disable if you are using Marker, otherwise enable
     zsh-syntax-highlighting
     history-substring-search
-    screen
     systemd
-    web-search
     k
     extract
     z
     sudo
+    fzf-tab
+    # web-search
     # httpie
     # git
     # python
@@ -95,7 +75,14 @@ plugins=(
     # redis-cli
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     )
+# Plugins can be added like into your own config file under ~/.config/ezsh/zshrc/ like this:
 #plugins+=(zsh-nvm)
+
+# Remove plugins from the default list above in your own config file using:
+# plugins=(${plugins:#pluginname})
+# plugins=(${plugins:#zsh-autosuggestions})
+
+# fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"   # install zsh-completions, if you need it
 
 # source $ZSH/oh-my-zsh.sh          # This is now run in .zshrc after importing user configs from ~/.config/ezsh/zshrc/* files 
 
@@ -128,8 +115,11 @@ plugins=(
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Add to PATH to Install and run programs with "pip install --user"
+# Add to PATH to run programs installed with pipx or "pip install --user"
 export PATH=$PATH:~/.local/bin
+
+# To give this path preference instead of system paths to run the latest version of tools, add the following to your personal config. Due to security concerns this is not done by default.
+# export PATH=~/.local/bin:$PATH
 
 export PATH=$PATH:~/.config/ezsh/bin
 
@@ -138,7 +128,7 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 
 [[ -s "$HOME/.config/ezsh/marker/marker.sh" ]] && source "$HOME/.config/ezsh/marker/marker.sh"
 
-autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
+# autoload -U compinit && compinit -C -d ~/.cache/zsh/.zcompdump        # zsh-completions
 # autoload bashcompinit                 # bash completions
 # bashcompinit
 
@@ -152,8 +142,8 @@ alias l="ls --hyperlink=auto -lAhrtF"    # show all except . .. , sort by recent
 alias e="exit"
 alias ip="ip --color=auto"
 ## Install EZA to use this. The better ls command
-alias a='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink'  #the new ls
-alias aa='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink -s modified -r'#sort by new
+alias a='eza -la --git --colour-scale all -g --smart-group --icons always'  #the new ls; add --hyperlink if you like
+alias aa='eza -la --git --colour-scale all -g --smart-group --icons always -s modified -r'#sort by new
 
 
 # CUSTOM FUNCTIONS

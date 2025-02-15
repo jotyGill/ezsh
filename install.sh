@@ -36,7 +36,7 @@ fi
 
 echo -e "The setup will be installed in '~/.config/ezsh'\n"
 echo -e "Place your personal zshrc config files under '~/.config/ezsh/zshrc/'\n"
-mkdir -p ~/.config/ezsh/zshrc
+mkdir -p ~/.config/ezsh/zshrc    # PLACE YOUR ZSHRC CONFIGURATIONS OVER THERE
 
 if [ -d ~/.quickzsh ]; then
     echo -e "\n PREVIOUS SETUP FOUND AT '~/.quickzsh'. PLEASE MANUALLY MOVE ANY FILES YOU'D LIKE TO '~/.config/ezsh' \n"
@@ -57,8 +57,8 @@ fi
 
 cp -f .zshrc ~/
 cp -f ezshrc.zsh ~/.config/ezsh/
+cp -f p10k.zsh ~/.config/ezsh/
 
-mkdir -p ~/.config/ezsh/zshrc         # PLACE YOUR ZSHRC CONFIGURATIONS OVER THERE
 mkdir -p ~/.cache/zsh/                # this will be used to store .zcompdump zsh completion cache files which normally clutter $HOME
 mkdir -p ~/.fonts                     # Create .fonts if doesn't exist
 
