@@ -75,8 +75,12 @@ plugins=(
     # redis-cli
     # zsh-wakatime          # enable if you use wakatime with 'https://github.com/wbingli/zsh-wakatime'
     )
-# Plugins can be added like into your own config file like this:
+# Plugins can be added like into your own config file under ~/.config/ezsh/zshrc/ like this:
 #plugins+=(zsh-nvm)
+
+# Remove plugins from the default list above in your own config file using:
+# plugins=(${plugins:#pluginname})
+# plugins=(${plugins:#zsh-autosuggestions})
 
 # fpath+="${ZSH_CUSTOM:-"$ZSH/custom"}/plugins/zsh-completions/src"   # install zsh-completions, if you need it
 
