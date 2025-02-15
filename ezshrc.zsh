@@ -140,8 +140,8 @@ alias l="ls --hyperlink=auto -lAhrtF"    # show all except . .. , sort by recent
 alias e="exit"
 alias ip="ip --color=auto"
 ## Install EZA to use this. The better ls command
-alias a='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink'  #the new ls
-alias aa='eza -la --git --colour-scale all -g --smart-group --icons always --hyperlink -s modified -r'#sort by new
+alias a='eza -la --git --colour-scale all -g --smart-group --icons always'  #the new ls; add --hyperlink if you like
+alias aa='eza -la --git --colour-scale all -g --smart-group --icons always -s modified -r'#sort by new
 
 
 # CUSTOM FUNCTIONS
