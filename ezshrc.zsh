@@ -116,8 +116,10 @@ plugins=(
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Add to PATH to run programs installed with pipx or "pip install --user"
-# This path gets preference. if you need to run versions installed by system, directly use full path i.e /usr/bin/PROGRAM
-export PATH=~/.local/bin:$PATH
+export PATH=$PATH:~/.local/bin
+
+# To give this path preference instead of system paths to run the latest version of tools, add the following to your personal config. Due to security concerns this is not done by default.
+# export PATH=~/.local/bin:$PATH
 
 export PATH=$PATH:~/.config/ezsh/bin
 
