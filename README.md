@@ -16,6 +16,7 @@ Sets following useful aliases and ohmyzsh plugins. **You can add more or overwri
 * l="ls -lah"         - just type "l" instead of "ls -lah"
 * alias k="k -h"	  - show human readable filesizes, in kb, mb etc
 * e="exit"
+* a='eza -la --git --colour-scale all -g --smart-group --icons always' - eza is the new ls
 * myip - (wget -qO- https://wtfismyip.com/text)       - what's my ip: quickly find out external IP
 * cheat - (https://github.com/chubin/cheat.sh)        - cheatsheets in the terminal!
 * speedtest - (curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -) run speedtest on the fly
@@ -23,17 +24,15 @@ Sets following useful aliases and ohmyzsh plugins. **You can add more or overwri
 * ipgeo - (curl "http://api.db-ip.com/v2/free/$1")    - finds geo location from IP
 * [x="extract"](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)         - extract any compressed files
 * [z](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/z)   - quickly jump to most visited directories
-* [web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)    - search on the web from cli
 * [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                - easily prefix your commands with sudo by pressing `esc` twice
-* [systemd](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemd)          - many useful aliases for systemd
 
 ## Demo
 
 Command prompt looks like this (easily customize it by placing your configs in ~/.config/ezsh/zshrc/)
-![prompt](https://user-images.githubusercontent.com/8462091/43674765-8bb13a76-9817-11e8-8b7b-16b8b1998408.png)
-user :  directory  :  git stats : last command exit code                     free memory: load : time
+![prompt](https://github.com/user-attachments/assets/806e13b1-f22e-448c-be75-0df4b72352cf)
+OS :  directory  :  git stats :           last command exit code & time taken : free RAM : time
 
-Watch this to get an idea of what your Shell (well, life!) could be like!!
+Watch this to get an idea of what your Shell (life) could be like!
 
 [![asciicast](https://asciinema.org/a/225226.svg)](https://asciinema.org/a/225226)
 
